@@ -88,13 +88,13 @@ DATABASES = {
 
        'ENGINE': 'django.db.backends.postgresql',
 
-       'NAME': 'ygdlhxncqilddg',
+       'NAME': 'df83jsup08ubp0',
 
        'HOST': 'ec2-52-31-219-113.eu-west-1.compute.amazonaws.com',
 
        'PORT': 5432,
 
-       'USER': 'df83jsup08ubp0',
+       'USER': 'ygdlhxncqilddg',
 
        'PASSWORD': '625442a7313720fb70453e7c3c941aa66943010ba3817994b0084e741c5043ca',
 
@@ -156,7 +156,7 @@ SOCIAL_AUTH_GITHUB_SECRET = '05e57394c83fc920e43760175cd97052144c9767'
 
 
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 
 db_from_env = dj_database_url.config()
