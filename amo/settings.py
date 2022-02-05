@@ -73,12 +73,32 @@ AUTHENTICATION_BACKENDS = (
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+
+   'default': {
+
+       'ENGINE': 'django.db.backends.postgresql',
+
+       'NAME': 'ygdlhxncqilddg',
+
+       'HOST': 'ec2-52-31-219-113.eu-west-1.compute.amazonaws.com',
+
+       'PORT': 5432,
+
+       'USER': 'df83jsup08ubp0',
+
+       'PASSWORD': '8f7e1e93c7a51c0d944f491447f0d518e933b77d1c2398ed40002c7b6f3d33b7',
+
     }
 }
+# postgres:// ygdlhxncqilddg: 625442a7313720fb70453e7c3c941aa66943010ba3817994b0084e741c5043ca@ ec2-52-31-219-113.eu-west-1.compute.amazonaws.com: 5432/df83jsup08ubp0
 
 
 # Password validation
