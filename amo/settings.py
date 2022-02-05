@@ -1,5 +1,7 @@
-
+import os
 from pathlib import Path
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -12,9 +14,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-lmylaccno%t=nv)sb$&f14*p&=vkdsxh=n#_%_rq09yj)eog0-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -39,6 +41,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'amo.urls'
@@ -122,5 +125,17 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SOCIAL_AUTH_JSONFIELD_ENABLED = True
 
+
+
 SOCIAL_AUTH_GITHUB_KEY = 'f231bb0e9f9e4ef877c7'
 SOCIAL_AUTH_GITHUB_SECRET = '05e57394c83fc920e43760175cd97052144c9767'
+
+
+
+
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+
+db_from_env = dj_database_url.config()
+DATABASES['default'].update(db_from_env)
