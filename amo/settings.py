@@ -86,7 +86,7 @@ DATABASES = {
 
    'default': {
 
-       'ENGINE': 'django.db.backends.postgresql',
+       'ENGINE': 'django.db.backends.postgresql_psycopg2',
 
        'NAME': 'df83jsup08ubp0',
 
@@ -138,6 +138,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -149,16 +150,12 @@ SOCIAL_AUTH_JSONFIELD_ENABLED = True
 
 
 SOCIAL_AUTH_GITHUB_KEY = 'f231bb0e9f9e4ef877c7'
+
 SOCIAL_AUTH_GITHUB_SECRET = '05e57394c83fc920e43760175cd97052144c9767'
-
-
-
-
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-
-db_from_env = dj_database_url.config()
+db_from_env = dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(db_from_env)
 
 CORS_ALLOW_ALL_ORIGINS = True
