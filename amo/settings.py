@@ -31,9 +31,11 @@ INSTALLED_APPS = [
     'crm.apps.CrmConfig',
     'rest_framework',
     'social_django',
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -94,7 +96,7 @@ DATABASES = {
 
        'USER': 'df83jsup08ubp0',
 
-       'PASSWORD': '8f7e1e93c7a51c0d944f491447f0d518e933b77d1c2398ed40002c7b6f3d33b7',
+       'PASSWORD': '625442a7313720fb70453e7c3c941aa66943010ba3817994b0084e741c5043ca',
 
     }
 }
@@ -159,3 +161,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 db_from_env = dj_database_url.config()
 DATABASES['default'].update(db_from_env)
+
+CORS_ALLOW_ALL_ORIGINS = True
