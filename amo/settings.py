@@ -102,7 +102,6 @@ DATABASES = {
 }
 # postgres:// ygdlhxncqilddg: 625442a7313720fb70453e7c3c941aa66943010ba3817994b0084e741c5043ca@ ec2-52-31-219-113.eu-west-1.compute.amazonaws.com: 5432/df83jsup08ubp0
 
-
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
