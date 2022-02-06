@@ -10,10 +10,11 @@ class ApiView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        result = getAPI()
+        select = request.query_params
+        result = getAPI(select['data'])
 
         return Response({
-            'API': json.loads(result.content.decode('utf-8'))
+            'API': json.loads(result.content.decode('utf-8')),
         })
 
 

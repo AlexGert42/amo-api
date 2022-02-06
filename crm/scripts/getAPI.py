@@ -2,7 +2,7 @@ import requests
 from amocrm.v2 import tokens
 
 
-def getAPI():
+def getAPI(selection="leads"):
     tokens.default_token_manager(
         client_id="bfe9fcdb-88c5-4d99-95a5-9aa88529202f",
         client_secret="HRqmShlj1NygsuWGU9yoheBlZgnM6V2olsv9ZM9TpHn5aK18mzZk9jieteYEoFQT",
@@ -21,6 +21,6 @@ def getAPI():
         'Authorization': 'Bearer ' + token
     }
 
-    res_leads = requests.get(link + "/api/v4/leads", headers=headers)
+    res_leads = requests.get(link + f"/api/v4/{selection}", headers=headers)
 
     return res_leads
