@@ -2,8 +2,6 @@ import os
 from pathlib import Path
 import dj_database_url
 
-
-
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-lmylaccno%t=nv)sb$&f14*p&=vkdsxh=n#_%_rq09yj)eog0-'
@@ -114,8 +112,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SOCIAL_AUTH_JSONFIELD_ENABLED = True
 
-
-
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
@@ -124,9 +120,6 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.JSONParser',
     )
 }
-
-
-
 
 SOCIAL_AUTH_GITHUB_KEY = 'f231bb0e9f9e4ef877c7'
 
