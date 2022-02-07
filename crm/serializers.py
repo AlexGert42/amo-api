@@ -1,4 +1,8 @@
+from django.contrib.auth.models import User
 from rest_framework import serializers
+
+
+
 
 class IntegrationSerializer(serializers.Serializer):
     title = serializers.CharField(max_length=255)

@@ -21,7 +21,8 @@ INSTALLED_APPS = [
     'crm.apps.CrmConfig',
     'rest_framework',
     'social_django',
-    'corsheaders'
+    'corsheaders',
+    'rest_framework.authtoken'
 ]
 
 MIDDLEWARE = [
@@ -118,7 +119,10 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_PARSER_CLASSES': (
         'rest_framework.parsers.JSONParser',
-    )
+    ),
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
 }
 
 SOCIAL_AUTH_GITHUB_KEY = 'f231bb0e9f9e4ef877c7'

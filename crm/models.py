@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class ApiAmoIntegration(models.Model):
@@ -16,3 +17,6 @@ class ApiAmoIntegration(models.Model):
         verbose_name = 'KeyIntegration'
         verbose_name_plural = 'KeyIntegration'
         ordering = ['pk']
+
+
+
