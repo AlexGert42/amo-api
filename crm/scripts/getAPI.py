@@ -23,6 +23,8 @@ def getAPI(currentIntegration, selection):
         'Authorization': 'Bearer ' + token
     }
 
-    res_leads = requests.get(link + f"/api/v4/{selection}", headers=headers)
+    res = requests.get(link + f"/api/v4/{selection}", headers=headers)
 
-    return res_leads
+    return res
+
+
