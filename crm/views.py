@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from crm.models import ApiAmoIntegration
+from crm.models import ApiAmoIntegration, FieldsAllRequest
 from crm.scripts.getAPI import getAPI
 from crm.serializers import IntegrationSerializer
 
@@ -20,7 +20,9 @@ class ApiView(APIView):
 
         currentIntegration = ApiAmoIntegration.objects.get(title=select['title'])
 
-        fields = ['leads', 'contacts', 'leads/pipelines', 'companies', 'tasks', 'events', 'users', 'templates']
+        # fields = ['leads', 'contacts', 'leads/pipelines', 'companies', 'tasks', 'events', 'users', 'templates']
+
+        fields = FieldsAllRequest.obgects.all()
 
         def allResponse(i):
             return {
@@ -33,8 +35,6 @@ class ApiView(APIView):
             })
 
         result = getAPI(IntegrationSerializer(currentIntegration).data, select['data'])
-
-
 
         return Response({
             select['data']: json.loads(result.content.decode('utf-8'))

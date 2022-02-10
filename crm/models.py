@@ -20,7 +20,17 @@ class ApiAmoIntegration(models.Model):
 
 
 
+class FieldsAllRequest(models.Model):
+    title = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
 
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'FieldsForAllRequests'
+        verbose_name_plural = 'FieldsForAllRequests'
+        ordering = ['pk']
 
 
 
