@@ -9,7 +9,7 @@ from rest_framework.views import APIView
 
 from crm.models import ApiAmoIntegration, FieldsAllRequest
 from crm.scripts.getAPI import getAPI
-from crm.serializers import IntegrationSerializer
+from crm.serializers import IntegrationSerializer, FieldsAllRequestSerializer
 
 
 class ApiView(APIView):
@@ -20,13 +20,11 @@ class ApiView(APIView):
 
         currentIntegration = ApiAmoIntegration.objects.get(title=select['title'])
 
-        # fields = ['leads', 'contacts', 'leads/pipelines', 'companies', 'tasks', 'events', 'users', 'templates']
-
-        fields = FieldsAllRequest.obgects.all()
+        fields = FieldsAllRequestSerializer(FieldsAllRequest.objects.all(), many=True).data
 
         def allResponse(i):
             return {
-                i: json.loads(getAPI(IntegrationSerializer(currentIntegration).data, i).content.decode('utf-8'))
+                i['title']: json.loads(getAPI(IntegrationSerializer(currentIntegration).data, i['url']).content.decode('utf-8'))
             }
 
         if select['data'] == 'all':

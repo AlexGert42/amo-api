@@ -14,3 +14,10 @@ class IntegrationSerializer(serializers.Serializer):
     key_link = serializers.CharField(max_length=255)
     class Meta:
         fields = '__all__'
+
+
+class FieldsAllRequestSerializer(serializers.Serializer):
+    title = serializers.CharField(max_length=255)
+    url = serializers.CharField(max_length=255)
+    class Meta:
+        fields = '__all__'
